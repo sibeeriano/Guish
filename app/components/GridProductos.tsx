@@ -57,7 +57,7 @@ export default function GridPartners({
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#ff7300]">
             {titulo}
           </h2>
           {subtitulo && (

@@ -66,7 +66,7 @@ export default function SeccionContenido({
             )}
           >
             {titulo && (
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)] text-center md:text-left">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#ff7300] text-center md:text-left">
                 {titulo}
               </h2>
             )}

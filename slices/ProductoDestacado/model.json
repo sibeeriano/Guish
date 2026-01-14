@@ -44,14 +44,40 @@
           }
         },
         "enlace_boton": {
-          "type": "Link",
+          "type": "Select",
           "config": {
-            "label": "Enlace del Botón",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": false,
-            "repeat": false
+            "label": "Sección del Botón",
+            "placeholder": "Selecciona una sección",
+            "options": [
+              "#inicio",
+              "#presencia-y-alcance",
+              "#partners-titulo",
+              "#contacto",
+              "#video"
+            ],
+            "default_value": ""
+          }
+        },
+        "texto_boton_2": {
+          "type": "Text",
+          "config": {
+            "label": "Texto del Botón 2",
+            "placeholder": "Presencia y alcance"
+          }
+        },
+        "enlace_boton_2": {
+          "type": "Select",
+          "config": {
+            "label": "Sección del Botón 2",
+            "placeholder": "Selecciona una sección",
+            "options": [
+              "#inicio",
+              "#presencia-y-alcance",
+              "#partners-titulo",
+              "#contacto",
+              "#video"
+            ],
+            "default_value": ""
           }
         },
         "posicion_imagen": {

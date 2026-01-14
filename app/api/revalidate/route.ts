@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 
 export async function POST(request: NextRequest) {
   // Verificar que la petición viene de Prismic (opcional pero recomendado)
@@ -15,9 +15,8 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    // Revalidar el caché de Prismic revalidando la ruta principal
-    // En Next.js 16, revalidatePath es más confiable que revalidateTag
-    revalidatePath("/", "page");
+    // Revalidar el caché de Prismic
+    revalidateTag("prismic");
 
     return NextResponse.json({
       revalidated: true,

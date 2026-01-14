@@ -65,7 +65,7 @@ export default function Hero({
               </div>
             </div>
           )}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white drop-shadow-2xl px-2 text-center md:text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white px-2 text-center md:text-center">
             {title}
           </h1>
           {subtitle && (
@@ -73,7 +73,7 @@ export default function Hero({
               {subtitle}
             </p>
           )}
-          <div className="flex justify-center items-center pt-4 px-4">
+          <div className="flex justify-start items-center pt-4 px-4">
             <Button
               size="lg"
               className="bg-white/10 backdrop-blur-md text-white border-0 hover:bg-white/20 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full sm:w-auto shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"

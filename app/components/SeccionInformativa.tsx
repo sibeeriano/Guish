@@ -44,7 +44,7 @@ export default function SeccionInformativa({
               "space-y-4 sm:space-y-6",
               isLeft ? "order-2 md:order-2" : "order-2 md:order-1"
             )}>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)] text-center md:text-left">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#ff7300] text-center md:text-left">
                 {titulo}
               </h2>
               <div className="space-y-3 sm:space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed">

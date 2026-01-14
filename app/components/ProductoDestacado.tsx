@@ -10,6 +10,8 @@ interface ProductoDestacadoProps {
   imagenAlt?: string
   ctaText?: string
   ctaHref?: string
+  ctaText2?: string
+  ctaHref2?: string
   alineacion?: "izquierda" | "derecha"
   className?: string
 }
@@ -21,6 +23,8 @@ export default function ProductoDestacado({
   imagenAlt = "Producto destacado",
   ctaText = "Ver más detalles",
   ctaHref = "#producto",
+  ctaText2,
+  ctaHref2,
   alineacion = "izquierda",
   className,
 }: ProductoDestacadoProps) {
@@ -63,7 +67,7 @@ export default function ProductoDestacado({
             isLeft ? "lg:order-2" : "lg:order-1"
           )}>
             <div className="space-y-4 sm:space-y-6 w-full flex flex-col items-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-[#ff7300]">
                 {titulo}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
@@ -71,12 +75,16 @@ export default function ProductoDestacado({
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 justify-center items-center w-full">
-              <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" asChild>
-                <a href={ctaHref}>{ctaText}</a>
-              </Button>
-              <Button variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 border-2 hover:border-primary w-full sm:w-auto transition-all duration-300 hover:scale-105" asChild>
-                <a href="#presencia-y-alcance">Presencia y alcance</a>
-              </Button>
+              {ctaText && (
+                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" asChild>
+                  <a href={ctaHref || "#"}>{ctaText}</a>
+                </Button>
+              )}
+              {ctaText2 && (
+                <Button variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 border-2 hover:border-primary w-full sm:w-auto transition-all duration-300 hover:scale-105" asChild>
+                  <a href={ctaHref2 || "#"}>{ctaText2}</a>
+                </Button>
+              )}
             </div>
           </div>
         </div>
