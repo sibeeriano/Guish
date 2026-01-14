@@ -35,7 +35,7 @@ export const createClient = (config: ClientConfig = {}) => {
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"
-        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
+        ? { next: { revalidate: 3600 } } // Revalidar cada hora, pero el webhook lo invalidará antes
         : { next: { revalidate: 5 } },
     ...config,
   });

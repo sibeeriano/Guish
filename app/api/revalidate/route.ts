@@ -16,6 +16,8 @@ export async function POST(request: NextRequest) {
 
   try {
     // Revalidar todas las rutas para asegurar que se actualice el contenido de Prismic
+    // Usar revalidatePath sin tipo para invalidar todo el caché de esa ruta
+    revalidatePath("/");
     revalidatePath("/", "layout");
     revalidatePath("/", "page");
 
