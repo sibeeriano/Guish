@@ -200,7 +200,7 @@ export default function GridPartners({
             )}
             aria-label="Anterior"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-6 w-6 text-muted-foreground dark:text-muted-foreground" />
           </Button>
 
           {/* Contenedor del Carrusel */}
@@ -284,7 +284,7 @@ export default function GridPartners({
             )}
             aria-label="Siguiente"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-6 w-6 text-muted-foreground dark:text-muted-foreground" />
           </Button>
         </div>
 

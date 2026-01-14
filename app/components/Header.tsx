@@ -102,7 +102,7 @@ export default function Header({ className }: HeaderProps) {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6 text-muted-foreground" /> : <Menu className="h-6 w-6 text-muted-foreground" />}
+            {isMenuOpen ? <X className="h-6 w-6 text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]" /> : <Menu className="h-6 w-6 text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]" />}
           </Button>
         </div>
       </div>

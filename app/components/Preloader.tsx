@@ -57,37 +57,45 @@ export default function Preloader({ children }: PreloaderProps) {
           <div className="relative w-16 h-16">
             {/* Círculo exterior que rota */}
             <div 
-              className="absolute inset-0 border-4 border-white/20 rounded-full"
+              className="absolute inset-0 border-4 rounded-full"
+              style={{ borderColor: 'rgba(255, 115, 0, 0.3)' }}
             />
             <div 
-              className="absolute inset-0 border-4 border-transparent border-t-white border-r-white/50 rounded-full animate-spin"
-              style={{ animationDuration: '1.2s' }}
+              className="absolute inset-0 border-4 border-transparent rounded-full animate-spin"
+              style={{ 
+                animationDuration: '1.2s',
+                borderTopColor: '#ff7300',
+                borderRightColor: '#ff7300'
+              }}
             />
             
             {/* Círculo interior con pulso suave */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-8 h-8 border-2 border-white/40 rounded-full animate-pulse" />
+              <div 
+                className="w-8 h-8 border-2 rounded-full animate-pulse" 
+                style={{ borderColor: '#ff7300' }} 
+              />
             </div>
           </div>
 
           {/* Puntos de carga animados */}
           <div className="flex items-center space-x-2">
             <div 
-              className="w-2 h-2 bg-white/80 rounded-full" 
+              className="w-2 h-2 bg-[#ff7300]/80 rounded-full" 
               style={{ 
                 animation: 'loader-dot 1.4s ease-in-out infinite',
                 animationDelay: '0s'
               }} 
             />
             <div 
-              className="w-2 h-2 bg-white/80 rounded-full" 
+              className="w-2 h-2 bg-[#ff7300]/80 rounded-full" 
               style={{ 
                 animation: 'loader-dot 1.4s ease-in-out infinite',
                 animationDelay: '0.2s'
               }} 
             />
             <div 
-              className="w-2 h-2 bg-white/80 rounded-full" 
+              className="w-2 h-2 bg-[#ff7300]/80 rounded-full" 
               style={{ 
                 animation: 'loader-dot 1.4s ease-in-out infinite',
                 animationDelay: '0.4s'
