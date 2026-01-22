@@ -54,11 +54,11 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: 33 24% 44%;
+    --background: 27 37% 68%;
     --foreground: 210 40% 98%;
-    --card: 33 24% 44%;
+    --card: 27 37% 68%;
     --card-foreground: 210 40% 98%;
-    --popover: 33 24% 44%;
+    --popover: 27 37% 68%;
     --popover-foreground: 210 40% 98%;
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -84,16 +84,16 @@ body {
   font-family: var(--font-apercu), system-ui, sans-serif;
 }
 
-/* Ajuste para modo oscuro - color café con leche oscuro */
+/* Ajuste para modo oscuro - color café pastel */
 .dark {
-  --background: 33 24% 44%;
-  --card: 33 24% 44%;
-  --popover: 33 24% 44%;
+  --background: 27 37% 68%;
+  --card: 27 37% 68%;
+  --popover: 27 37% 68%;
   --muted-foreground: 0 0% 100%; /* Blanco en modo oscuro */
 }
 
 .dark body {
-  background: #8B7355;
+  background: #CBA98D;
 }
 
 /* Forzar color café con leche oscuro para textos muted en modo claro */

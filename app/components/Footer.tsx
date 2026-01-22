@@ -12,7 +12,7 @@ export default function Footer({ className }: FooterProps) {
   return (
     <footer
       className={cn(
-        "bg-white/80 backdrop-blur-md border-0",
+        "bg-white/80 dark:bg-[#CBA98D]/80 backdrop-blur-md border-0",
         className
       )}
     >
@@ -54,20 +54,20 @@ export default function Footer({ className }: FooterProps) {
 
           {/* Columna 2: Enlaces rápidos */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">Enlaces Rápidos</h4>
+            <h4 className="text-sm font-semibold text-[#ff7300]">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#inicio" className="text-[#ff7300] hover:opacity-80 transition-opacity [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">
+                <a href="#inicio" className="text-[#ff7300] hover:opacity-80 transition-opacity">
                   Inicio
                 </a>
               </li>
               <li>
-                <a href="#productos" className="text-[#ff7300] hover:opacity-80 transition-opacity [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">
+                <a href="#productos" className="text-[#ff7300] hover:opacity-80 transition-opacity">
                   Productos
                 </a>
               </li>
               <li>
-                <a href="#presencia-y-alcance" className="text-[#ff7300] hover:opacity-80 transition-opacity [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">
+                <a href="#presencia-y-alcance" className="text-[#ff7300] hover:opacity-80 transition-opacity">
                   Presencia y alcance
                 </a>
               </li>
@@ -76,7 +76,7 @@ export default function Footer({ className }: FooterProps) {
 
           {/* Columna 3: Contacto */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">Contacto</h4>
+            <h4 className="text-sm font-semibold text-[#ff7300]">Contacto</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>email@ejemplo.com</li>
               <li>+1 (555) 123-4567</li>

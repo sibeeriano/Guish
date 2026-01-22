@@ -38,28 +38,42 @@ export default function Hero({
   }, [])
 
   // Color de fondo según el tema
-  const backgroundColor = mounted && theme === "dark" ? "#8B7355" : "#FFF7F2"
+  const backgroundColor = mounted && theme === "dark" ? "#CBA98D" : "#FFF7F2"
 
   return (
     <section
       id="inicio"
       className={cn(
-        "relative flex min-h-screen w-screen max-w-full items-center justify-center overflow-hidden -mt-16",
+        "relative flex min-h-screen w-full max-w-full items-center justify-center overflow-hidden -mt-16",
         className
       )}
-      style={{ height: '100vh', maxHeight: '100vh' }}
+      style={{ 
+        height: '100vh', 
+        maxHeight: '100vh', 
+        width: '100%',
+        minWidth: '100%'
+      }}
     >
       {/* Background Image */}
       {backgroundImage ? (
-        <Image
-          src={backgroundImage}
-          alt="Hero background"
-          fill
-          className="object-cover z-0"
-          sizes="100vw"
-          priority
-          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-        />
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+          <Image
+            src={backgroundImage}
+            alt="Hero background"
+            fill
+            className="object-cover z-0"
+            sizes="100vw"
+            priority
+            style={{ 
+              objectFit: 'cover', 
+              objectPosition: 'left center',
+              width: '100%', 
+              height: '100%',
+              left: 0,
+              right: 'auto'
+            }}
+          />
+        </div>
       ) : (
         <div 
           className="absolute inset-0 z-0" 
@@ -79,7 +93,14 @@ export default function Hero({
             className="object-contain z-[1]"
             sizes="100vw"
             priority
-            style={{ objectFit: 'contain', objectPosition: 'center' }}
+            style={{ 
+              objectFit: 'contain', 
+              objectPosition: 'center',
+              width: '100%', 
+              height: '100%',
+              maxWidth: '100%',
+              maxHeight: '100%'
+            }}
           />
         </div>
       )}

@@ -50,7 +50,7 @@ export default function BackgroundProvider({ fondoConfig, children }: Background
     } else {
       // Color de fondo por defecto
       if (theme === "dark") {
-        body.style.background = "#8B7355"
+        body.style.background = "#CBA98D"
       } else {
         body.style.background = "#FFF7F2"
       }

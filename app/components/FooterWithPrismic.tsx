@@ -20,7 +20,7 @@ export default function FooterWithPrismic({ className, config }: FooterWithPrism
   return (
     <footer
       className={cn(
-        "bg-white/80 backdrop-blur-md border-0",
+        "bg-white/80 dark:bg-[#CBA98D]/80 backdrop-blur-md border-0",
         className
       )}
     >
@@ -62,20 +62,20 @@ export default function FooterWithPrismic({ className, config }: FooterWithPrism
 
           {/* Columna 2: Enlaces rápidos */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">Enlaces Rápidos</h4>
+            <h4 className="text-sm font-semibold text-[#ff7300]">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#inicio" className="text-[#ff7300] hover:opacity-80 transition-opacity [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">
+                <a href="#inicio" className="text-[#ff7300] hover:opacity-80 transition-opacity">
                   Inicio
                 </a>
               </li>
               <li>
-                <a href="#partners-titulo" className="text-[#ff7300] hover:opacity-80 transition-opacity [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">
+                <a href="#partners-titulo" className="text-[#ff7300] hover:opacity-80 transition-opacity">
                   Partners
                 </a>
               </li>
               <li>
-                <a href="#presencia-y-alcance" className="text-[#ff7300] hover:opacity-80 transition-opacity [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">
+                <a href="#presencia-y-alcance" className="text-[#ff7300] hover:opacity-80 transition-opacity">
                   Presencia y alcance
                 </a>
               </li>
@@ -84,7 +84,7 @@ export default function FooterWithPrismic({ className, config }: FooterWithPrism
 
           {/* Columna 3: Contacto */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]">Contacto</h4>
+            <h4 className="text-sm font-semibold text-[#ff7300]">Contacto</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>{email}</li>
               <li>{telefono}</li>
@@ -99,7 +99,7 @@ export default function FooterWithPrismic({ className, config }: FooterWithPrism
                     href={red.enlace}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#ff7300] hover:opacity-80 transition-opacity [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]"
+                    className="text-[#ff7300] hover:opacity-80 transition-opacity"
                   >
                     {red.plataforma}
                   </a>

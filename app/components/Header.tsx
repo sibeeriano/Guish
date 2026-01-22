@@ -55,13 +55,15 @@ export default function Header({ className }: HeaderProps) {
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300 border-0",
-        isScrolled
-          ? "bg-white/20 backdrop-blur-md supports-[backdrop-filter]:bg-white/10"
-          : "bg-transparent",
         className
       )}
+      style={{
+        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1))',
+        backdropFilter: 'blur(8px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(8px) saturate(180%)'
+      }}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="relative container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center space-x-4">
           {menuItems.map((item) => (
@@ -71,7 +73,7 @@ export default function Header({ className }: HeaderProps) {
               onClick={(e) => handleSmoothScroll(e, item.href)}
               className={cn(
                 "text-sm font-medium transition-all duration-300 ease-in-out",
-                "hover:scale-105 text-[#ff7300]",
+                "hover:scale-105 text-white",
                 "[text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]"
               )}
             >
@@ -88,7 +90,7 @@ export default function Header({ className }: HeaderProps) {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6 text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]" /> : <Menu className="h-6 w-6 text-[#ff7300] [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]" />}
+            {isMenuOpen ? <X className="h-6 w-6 text-white [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]" /> : <Menu className="h-6 w-6 text-white [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]" />}
           </Button>
         </div>
 
@@ -108,12 +110,20 @@ export default function Header({ className }: HeaderProps) {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className={cn(
-          "md:hidden transition-all duration-300 border-0",
-          isScrolled
-            ? "bg-white/20 backdrop-blur-md"
-            : "bg-black/80 backdrop-blur-md"
-        )}>
+        <div 
+          className={cn(
+            "md:hidden fixed left-0 right-0 w-full border-0 z-40 transition-all duration-300"
+          )}
+          style={{ 
+            top: '64px',
+            backgroundColor: 'rgba(255, 255, 255, 0.25)',
+            background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2))',
+            backdropFilter: 'blur(15px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(15px) saturate(180%)',
+            willChange: 'backdrop-filter',
+            isolation: 'isolate'
+          }}
+        >
           <nav className="container mx-auto flex flex-col space-y-4 px-4 py-4">
             {menuItems.map((item) => (
               <a
@@ -125,17 +135,13 @@ export default function Header({ className }: HeaderProps) {
                 }}
                 className={cn(
                   "text-sm font-medium transition-all duration-300 ease-in-out py-2",
-                  "hover:scale-105 hover:translate-x-1 text-[#ff7300]",
+                  "hover:scale-105 hover:translate-x-1 text-white",
                   "[text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)]"
                 )}
               >
                 {item.label}
               </a>
             ))}
-            <div className="flex items-center justify-between pt-2">
-              <span className="text-sm text-muted-foreground">Tema:</span>
-              <ThemeToggle />
-            </div>
           </nav>
         </div>
       )}
