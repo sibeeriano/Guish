@@ -51,7 +51,11 @@ export default function Hero({
         height: '100vh', 
         maxHeight: '100vh', 
         width: '100%',
-        minWidth: '100%'
+        minWidth: '100%',
+        marginLeft: 0,
+        marginRight: 0,
+        paddingLeft: 0,
+        paddingRight: 0
       }}
     >
       {/* Background Image */}
@@ -85,7 +89,21 @@ export default function Hero({
 
       {/* Imagen de letras - mismo tamaño que la portada, responsive y de punta a punta */}
       {lettersImage && (
-        <div className="absolute inset-0 w-full h-full z-[1] flex items-center justify-center">
+        <div 
+          className="absolute inset-0 w-full h-full z-[1] left-0 right-0 bottom-0"
+          style={{
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 0,
+            paddingLeft: 0,
+            paddingRight: 0,
+            paddingBottom: 0,
+            width: '100%',
+            left: 0,
+            right: 0,
+            bottom: 0
+          }}
+        >
           <Image
             src={lettersImage}
             alt={lettersImageAlt}
@@ -95,11 +113,20 @@ export default function Hero({
             priority
             style={{ 
               objectFit: 'contain', 
-              objectPosition: 'center',
+              objectPosition: 'left bottom',
               width: '100%', 
               height: '100%',
               maxWidth: '100%',
-              maxHeight: '100%'
+              maxHeight: '100%',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              marginLeft: 0,
+              marginRight: 0,
+              marginBottom: 0,
+              paddingLeft: 0,
+              paddingRight: 0,
+              paddingBottom: 0
             }}
           />
         </div>

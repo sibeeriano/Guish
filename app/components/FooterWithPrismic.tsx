@@ -20,7 +20,7 @@ export default function FooterWithPrismic({ className, config }: FooterWithPrism
   return (
     <footer
       className={cn(
-        "bg-white/80 dark:bg-[#CBA98D]/80 backdrop-blur-md border-0",
+        "bg-white/80 dark:bg-[#9B7A5F]/80 backdrop-blur-md border-0",
         className
       )}
     >
@@ -45,7 +45,7 @@ export default function FooterWithPrismic({ className, config }: FooterWithPrism
               />
             </a>
           </div>
-          {/* Columna 1: Logo y descripción */}
+          {/* Columna 1: Logo */}
           <div className="space-y-4">
             <div className="relative w-20 h-20">
               <Image
@@ -55,9 +55,6 @@ export default function FooterWithPrismic({ className, config }: FooterWithPrism
                 className="object-contain"
               />
             </div>
-            <p className="text-sm text-muted-foreground">
-              {footerTexto}
-            </p>
           </div>
 
           {/* Columna 2: Enlaces rápidos */}
@@ -65,17 +62,17 @@ export default function FooterWithPrismic({ className, config }: FooterWithPrism
             <h4 className="text-sm font-semibold text-[#ff7300]">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#inicio" className="text-[#ff7300] hover:opacity-80 transition-opacity">
+                <a href="#inicio" className="text-[#ff7300] hover:opacity-80 transition-opacity underline">
                   Inicio
                 </a>
               </li>
               <li>
-                <a href="#partners-titulo" className="text-[#ff7300] hover:opacity-80 transition-opacity">
+                <a href="#partners-titulo" className="text-[#ff7300] hover:opacity-80 transition-opacity underline">
                   Partners
                 </a>
               </li>
               <li>
-                <a href="#presencia-y-alcance" className="text-[#ff7300] hover:opacity-80 transition-opacity">
+                <a href="#presencia-y-alcance" className="text-[#ff7300] hover:opacity-80 transition-opacity underline">
                   Presencia y alcance
                 </a>
               </li>
