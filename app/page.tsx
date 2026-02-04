@@ -1,20 +1,12 @@
 import HeaderWithPrismic from './components/HeaderWithPrismic';
 import FooterWithPrismic from './components/FooterWithPrismic';
 import BackgroundProvider from './components/BackgroundProvider';
+import Mantenimiento from './components/Mantenimiento';
 import { getLandingPage } from './lib/getLandingPage';
 import { getConfiguracionGlobal } from './lib/getConfiguracionGlobal';
 import { SliceZone } from '@prismicio/react';
 import { components } from '@/slices';
 import * as prismic from '@prismicio/client';
-
-// Componentes por defecto (fallback si no hay Prismic)
-import Hero from './components/Hero';
-import SeccionContenido from './components/SeccionContenido';
-import ProductoDestacado from './components/ProductoDestacado';
-import VideoSection from './components/VideoSection';
-import GridPartners from './components/GridPartners';
-import GridCaracteristicas from './components/GridCaracteristicas';
-import SeccionInformativa from './components/SeccionInformativa';
 
 export default async function Home() {
   // Intentar obtener datos de Prismic
@@ -66,71 +58,10 @@ export default async function Home() {
     );
   }
 
-  // Fallback: usar componentes hardcodeados si no hay Prismic
+  // Página sin publicar o sin contenido: solo vista de mantenimiento con fondo blanco
   return (
-    <BackgroundProvider>
-      <div className="flex min-h-screen flex-col">
-        <HeaderWithPrismic config={config} />
-        <main className="flex-1">
-        {/* Hero Section */}
-        <Hero
-          title="Transforma tu Negocio"
-          subtitle="Soluciones innovadoras que impulsan el crecimiento y la eficiencia de tu empresa"
-          ctaText="Comenzar ahora"
-          ctaHref="#contacto"
-        />
-
-        {/* Sección Contenido 1 - Izquierda */}
-        <SeccionContenido
-          titulo="Nuestra Solución"
-          contenido="Ofrecemos una plataforma completa diseñada para optimizar tus procesos y aumentar la productividad. Con herramientas intuitivas y tecnología de vanguardia, ayudamos a tu equipo a alcanzar sus objetivos más rápido."
-          alineacion="izquierda"
-        />
-
-        {/* Producto Destacado */}
-        <ProductoDestacado
-          titulo="Producto Estrella"
-          descripcion="Descubre nuestro producto más innovador, diseñado con las últimas tecnologías para ofrecerte una experiencia excepcional. Perfecto para empresas que buscan la excelencia."
-          ctaText="Ver más detalles"
-          ctaHref="#producto"
-        />
-
-        {/* Video Section */}
-        <VideoSection
-          videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          title="Video promocional"
-        />
-
-        {/* Grid de Partners */}
-        <GridPartners
-          titulo="Nuestros Partners"
-          subtitulo="Trabajamos con las mejores empresas del sector"
-        />
-
-        {/* Grid de Características */}
-        <GridCaracteristicas
-          titulo="Características Principales"
-          subtitulo="Todo lo que necesitas para tener éxito en un solo lugar"
-        />
-
-        {/* Sección Contenido 2 - Derecha */}
-        <SeccionContenido
-          titulo="Tecnología de Vanguardia"
-          contenido="Nuestro sistema incluye funcionalidades avanzadas que se adaptan a las necesidades específicas de tu industria. Desde automatización de tareas hasta análisis en tiempo real, todo en un solo lugar."
-          alineacion="derecha"
-        />
-
-        {/* Sección Informativa */}
-        <SeccionInformativa
-          titulo="¿Listo para comenzar?"
-          contenido="Únete a miles de empresas que ya están transformando su negocio con nuestras soluciones. Nuestro equipo está listo para ayudarte a alcanzar tus objetivos."
-          ctaText="Contactar ahora"
-          ctaHref="#contacto"
-          mostrarCTA={true}
-        />
-      </main>
-      <FooterWithPrismic config={config} />
-      </div>
-    </BackgroundProvider>
+    <div className="min-h-screen bg-white">
+      <Mantenimiento />
+    </div>
   );
 }
