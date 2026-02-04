@@ -23,18 +23,18 @@ function LinkedInEmbed({ url }: { url: string }) {
   const activityId = getLinkedInActivityId(url)
   if (!activityId) {
     return (
-      <div className="rounded-lg border border-[#927A5B]/30 dark:border-white/20 bg-white/50 dark:bg-black/20 p-4 text-center text-sm text-[#927A5B] dark:text-white/80">
+      <div className="rounded-lg bg-white/50 dark:bg-black/20 p-4 text-center text-sm text-[#927A5B] dark:text-white/80">
         URL no válida de post de LinkedIn. Pegá un enlace como: https://www.linkedin.com/posts/...activity-1234567890...
       </div>
     )
   }
   const embedUrl = `https://www.linkedin.com/embed/feed/update/urn:li:activity:${activityId}`
   return (
-    <div className="w-full overflow-hidden rounded-lg border border-[#927A5B]/20 dark:border-white/10 bg-white dark:bg-white/5 shadow-sm">
+    <div className="w-full overflow-hidden rounded-lg">
       <iframe
         src={embedUrl}
         title="Post de LinkedIn"
-        className="w-full min-h-[400px] border-0"
+        className="w-full min-h-[400px] border-0 block"
         allowFullScreen
         loading="lazy"
       />
