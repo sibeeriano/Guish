@@ -3,17 +3,11 @@ import { SliceComponentProps } from "@prismicio/react"
 import LinkedInPost from "@/app/components/LinkedInPost"
 import * as prismic from "@prismicio/client"
 
-interface LinkedInPostSlicePrimary {
-  titulo_seccion?: string | null
-  posts?: Array<{ url_post?: prismic.LinkField }>
-}
-interface LinkedInPostSliceData {
-  primary: LinkedInPostSlicePrimary
-}
+export type LinkedinPostSlice = prismic.Content.LinkedinPostSlice
 
 export default function LinkedInPostSliceComponent({
   slice,
-}: SliceComponentProps<LinkedInPostSliceData>) {
+}: SliceComponentProps<LinkedinPostSlice>) {
   const tituloSeccion = slice.primary.titulo_seccion ?? undefined
   const items = slice.primary.posts ?? []
   const posts = items
