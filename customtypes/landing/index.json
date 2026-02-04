@@ -25,6 +25,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "linkedin_post": {
+              "type": "SharedSlice"
+            },
             "configuracion_fondo": {
               "type": "SharedSlice"
             },

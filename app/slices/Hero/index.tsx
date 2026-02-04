@@ -8,27 +8,13 @@ export type HeroSlice = prismic.Content.HeroSlice
 export default function HeroSliceComponent({
   slice,
 }: SliceComponentProps<HeroSlice>) {
-  const title = (slice.primary.titulo as string) || undefined
-  const subtitle = prismic.asText(slice.primary.subtitulo) || undefined
-  const ctaText = (slice.primary.texto_boton as string) || undefined
-  const ctaHref = "#video"
   const backgroundImage = slice.primary.imagen_fondo?.url || undefined
-  const topImage = slice.primary.imagen_superior?.url || undefined
-  const topImageAlt = slice.primary.imagen_superior?.alt || undefined
-  // Acceder a campo nuevo que aún no está en los tipos generados
-  const primaryAny = slice.primary as any
-  const lettersImage = primaryAny.imagen_letras?.url || undefined
-  const lettersImageAlt = primaryAny.imagen_letras?.alt || "güish"
+  const lettersImage = slice.primary.imagen_letras?.url || undefined
+  const lettersImageAlt = slice.primary.imagen_letras?.alt || "güish"
 
   return (
     <Hero
-      title={title}
-      subtitle={subtitle}
-      ctaText={ctaText}
-      ctaHref={ctaHref}
       backgroundImage={backgroundImage}
-      topImage={topImage}
-      topImageAlt={topImageAlt}
       lettersImage={lettersImage}
       lettersImageAlt={lettersImageAlt}
     />

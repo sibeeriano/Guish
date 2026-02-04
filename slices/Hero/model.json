@@ -12,22 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "titulo": {
-          "type": "Text",
-          "config": {
-            "label": "Titulo",
-            "placeholder": "Titulo"
-          }
-        },
-        "subtitulo": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Subtitulo",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
-        },
         "imagen_fondo": {
           "type": "Image",
           "config": {
@@ -36,27 +20,12 @@
             "thumbnails": []
           }
         },
-        "imagen_superior": {
-          "type": "Image",
-          "config": {
-            "label": "Imagen Superior (arriba del título)",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "imagen_letras": {
           "type": "Image",
           "config": {
-            "label": "Imagen de Letras (mitad inferior)",
+            "label": "Imagen de Letras",
             "constraint": {},
             "thumbnails": []
-          }
-        },
-        "texto_boton": {
-          "type": "Text",
-          "config": {
-            "label": "Texto del Botón",
-            "placeholder": "Comenzar ahora"
           }
         }
       },

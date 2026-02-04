@@ -1,0 +1,47 @@
+{
+  "id": "linkedin_post",
+  "type": "SharedSlice",
+  "name": "Post de LinkedIn",
+  "description": "Bloque para pegar enlaces de posts de LinkedIn y mostrarlos embebidos en la página",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Lista de posts de LinkedIn por URL",
+      "imageUrl": "",
+      "primary": {
+        "titulo_seccion": {
+          "type": "Text",
+          "config": {
+            "label": "Título de la sección",
+            "placeholder": "Posts de LinkedIn"
+          }
+        },
+        "posts": {
+          "type": "Group",
+          "config": {
+            "label": "Posts",
+            "description": "Pegá el link del post de LinkedIn (ej: https://www.linkedin.com/posts/...)",
+            "repeat": true,
+            "fields": {
+              "url_post": {
+                "type": "Link",
+                "config": {
+                  "label": "URL del post de LinkedIn",
+                  "placeholder": "https://www.linkedin.com/posts/...",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -7,6 +7,7 @@ export const components = {
   grid_caracteristicas: dynamic(() => import("./GridCaracteristicas")),
   grid_partners: dynamic(() => import("./GridPartners")),
   hero: dynamic(() => import("./Hero")),
+  linkedin_post: dynamic(() => import("./LinkedInPost")),
   producto_destacado: dynamic(() => import("./ProductoDestacado")),
   seccion_contenido: dynamic(() => import("./SeccionContenido")),
   seccion_informativa: dynamic(() => import("./SeccionInformativa")),

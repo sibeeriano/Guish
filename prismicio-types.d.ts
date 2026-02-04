@@ -70,11 +70,11 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
- * Item in *Configuración Global → menu_items*
+ * Item in *configuracion_global → menu_items*
  */
 export interface ConfiguracionGlobalDocumentDataMenuItemsItem {
   /**
-   * texto field in *Configuración Global → menu_items*
+   * texto field in *configuracion_global → menu_items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -84,7 +84,7 @@ export interface ConfiguracionGlobalDocumentDataMenuItemsItem {
   texto: prismic.KeyTextField;
 
   /**
-   * enlace field in *Configuración Global → menu_items*
+   * enlace field in *configuracion_global → menu_items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -95,11 +95,46 @@ export interface ConfiguracionGlobalDocumentDataMenuItemsItem {
 }
 
 /**
- * Item in *Configuración Global → redes_sociales*
+ * Item in *configuracion_global → footer_contacto*
+ */
+export interface ConfiguracionGlobalDocumentDataFooterContactoItem {
+  /**
+   * telefono field in *configuracion_global → footer_contacto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: configuracion_global.footer_contacto[].telefono
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  telefono: prismic.KeyTextField;
+
+  /**
+   * email field in *configuracion_global → footer_contacto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: configuracion_global.footer_contacto[].email
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * direccion field in *configuracion_global → footer_contacto*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: configuracion_global.footer_contacto[].direccion
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  direccion: prismic.KeyTextField;
+}
+
+/**
+ * Item in *configuracion_global → redes_sociales*
  */
 export interface ConfiguracionGlobalDocumentDataRedesSocialesItem {
   /**
-   * plataforma field in *Configuración Global → redes_sociales*
+   * plataforma field in *configuracion_global → redes_sociales*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -111,7 +146,7 @@ export interface ConfiguracionGlobalDocumentDataRedesSocialesItem {
   >;
 
   /**
-   * enlace field in *Configuración Global → redes_sociales*
+   * enlace field in *configuracion_global → redes_sociales*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -122,26 +157,23 @@ export interface ConfiguracionGlobalDocumentDataRedesSocialesItem {
 }
 
 /**
- * Content for Configuración Global documents
+ * Content for configuracion_global documents
  */
 interface ConfiguracionGlobalDocumentData {
   /**
-   * Tipo de Fondo field in *Configuración Global*
+   * Tipo de Fondo field in *configuracion_global*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Color
+   * - **Default Value**: Gradiente
    * - **API ID Path**: configuracion_global.tipo_fondo
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  tipo_fondo: prismic.SelectField<
-    "Color" | "Imagen" | "Gradiente" | "nada",
-    "filled"
-  >;
+  tipo_fondo: prismic.SelectField<"Color" | "Imagen" | "Gradiente", "filled">;
 
   /**
-   * Color de Fondo (hexadecimal) field in *Configuración Global*
+   * Color de Fondo (hexadecimal) field in *configuracion_global*
    *
    * - **Field Type**: Text
    * - **Placeholder**: #cebca5
@@ -152,7 +184,7 @@ interface ConfiguracionGlobalDocumentData {
   color_fondo: prismic.KeyTextField;
 
   /**
-   * Imagen de Fondo field in *Configuración Global*
+   * Imagen de Fondo field in *configuracion_global*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -163,7 +195,7 @@ interface ConfiguracionGlobalDocumentData {
   imagen_fondo: prismic.ImageField<never>;
 
   /**
-   * menu_items field in *Configuración Global*
+   * menu_items field in *configuracion_global*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -176,7 +208,7 @@ interface ConfiguracionGlobalDocumentData {
   >;
 
   /**
-   * footer_texto field in *Configuración Global*
+   * footer_texto field in *configuracion_global*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -187,7 +219,20 @@ interface ConfiguracionGlobalDocumentData {
   footer_texto: prismic.RichTextField;
 
   /**
-   * redes_sociales field in *Configuración Global*
+   * footer_contacto field in *configuracion_global*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: configuracion_global.footer_contacto[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  footer_contacto: prismic.GroupField<
+    Simplify<ConfiguracionGlobalDocumentDataFooterContactoItem>
+  >;
+
+  /**
+   * redes_sociales field in *configuracion_global*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -201,57 +246,23 @@ interface ConfiguracionGlobalDocumentData {
 }
 
 /**
- * Configuración Global document from Prismic
+ * configuracion_global document from Prismic
  *
  * - **API ID**: `configuracion_global`
- * - **Repeatable**: `false`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
 export type ConfiguracionGlobalDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
+  prismic.PrismicDocumentWithUID<
     Simplify<ConfiguracionGlobalDocumentData>,
     "configuracion_global",
     Lang
   >;
 
-/**
- * Item in *landing → Contacto del Footer*
- */
-export interface LandingDocumentDataFooterContactoItem {
-  /**
-   * Teléfono field in *landing → Contacto del Footer*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing.footer_contacto[].telefono
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  telefono: prismic.KeyTextField;
-
-  /**
-   * Email field in *landing → Contacto del Footer*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing.footer_contacto[].email
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  email: prismic.KeyTextField;
-
-  /**
-   * Dirección field in *landing → Contacto del Footer*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing.footer_contacto[].direccion
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  direccion: prismic.KeyTextField;
-}
-
 type LandingDocumentDataSlicesSlice =
+  | LinkedinPostSlice
   | ConfiguracionFondoSlice
   | VideoSectionSlice
   | SeccionInformativaSlice
@@ -277,19 +288,6 @@ interface LandingDocumentData {
   logo: prismic.ImageField<never>;
 
   /**
-   * Contacto del Footer field in *landing*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing.footer_contacto[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  footer_contacto: prismic.GroupField<
-    Simplify<LandingDocumentDataFooterContactoItem>
-  >;
-
-  /**
    * Slice Zone field in *landing*
    *
    * - **Field Type**: Slice Zone
@@ -298,7 +296,7 @@ interface LandingDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<LandingDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<LandingDocumentDataSlicesSlice>; /**
    * Meta Title field in *landing*
    *
    * - **Field Type**: Text
@@ -306,7 +304,7 @@ interface LandingDocumentData {
    * - **API ID Path**: landing.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -470,11 +468,11 @@ export type ConfiguracionFondoSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *Sobre Nosotros → Default → Primary → Caracteristicas*
+ * Item in *Bloque Tiendas → Default → Primary → Caracteristicas*
  */
 export interface GridCaracteristicasSliceDefaultPrimaryCaracteristicasItem {
   /**
-   * Título de la Característica field in *Sobre Nosotros → Default → Primary → Caracteristicas*
+   * Título de la Característica field in *Bloque Tiendas → Default → Primary → Caracteristicas*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -484,7 +482,7 @@ export interface GridCaracteristicasSliceDefaultPrimaryCaracteristicasItem {
   titulo: prismic.KeyTextField;
 
   /**
-   * Descripción de la Característica field in *Sobre Nosotros → Default → Primary → Caracteristicas*
+   * Descripción de la Característica field in *Bloque Tiendas → Default → Primary → Caracteristicas*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -494,7 +492,7 @@ export interface GridCaracteristicasSliceDefaultPrimaryCaracteristicasItem {
   descripcion: prismic.RichTextField;
 
   /**
-   * Icono field in *Sobre Nosotros → Default → Primary → Caracteristicas*
+   * Icono field in *Bloque Tiendas → Default → Primary → Caracteristicas*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -502,14 +500,24 @@ export interface GridCaracteristicasSliceDefaultPrimaryCaracteristicasItem {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   icono: prismic.ImageField<never>;
+
+  /**
+   * Enlace field in *Bloque Tiendas → Default → Primary → Caracteristicas*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_caracteristicas.default.primary.caracteristicas[].enlace
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  enlace: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
- * Primary content in *Sobre Nosotros → Default → Primary*
+ * Primary content in *Bloque Tiendas → Default → Primary*
  */
 export interface GridCaracteristicasSliceDefaultPrimary {
   /**
-   * Título de la Sección field in *Sobre Nosotros → Default → Primary*
+   * Título de la Sección field in *Bloque Tiendas → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -519,7 +527,7 @@ export interface GridCaracteristicasSliceDefaultPrimary {
   titulo_seccion: prismic.KeyTextField;
 
   /**
-   * Subtitulo field in *Sobre Nosotros → Default → Primary*
+   * Subtitulo field in *Bloque Tiendas → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -529,7 +537,7 @@ export interface GridCaracteristicasSliceDefaultPrimary {
   subtitulo: prismic.KeyTextField;
 
   /**
-   * Caracteristicas field in *Sobre Nosotros → Default → Primary*
+   * Caracteristicas field in *Bloque Tiendas → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -542,7 +550,7 @@ export interface GridCaracteristicasSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Sobre Nosotros Slice
+ * Default variation for Bloque Tiendas Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -555,12 +563,12 @@ export type GridCaracteristicasSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *Sobre Nosotros*
+ * Slice variation for *Bloque Tiendas*
  */
 type GridCaracteristicasSliceVariation = GridCaracteristicasSliceDefault;
 
 /**
- * Sobre Nosotros Shared Slice
+ * Bloque Tiendas Shared Slice
  *
  * - **API ID**: `grid_caracteristicas`
  * - **Description**: Grid con características, beneficios o información sobre la empresa
@@ -686,26 +694,6 @@ export type GridPartnersSlice = prismic.SharedSlice<
  */
 export interface HeroSliceDefaultPrimary {
   /**
-   * Titulo field in *Banner Principal → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Titulo
-   * - **API ID Path**: hero.default.primary.titulo
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  titulo: prismic.KeyTextField;
-
-  /**
-   * Subtitulo field in *Banner Principal → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.subtitulo
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  subtitulo: prismic.RichTextField;
-
-  /**
    * Imagen de Fondo field in *Banner Principal → Default → Primary*
    *
    * - **Field Type**: Image
@@ -716,24 +704,14 @@ export interface HeroSliceDefaultPrimary {
   imagen_fondo: prismic.ImageField<never>;
 
   /**
-   * Imagen Superior (arriba del título) field in *Banner Principal → Default → Primary*
+   * Imagen de Letras field in *Banner Principal → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.imagen_superior
+   * - **API ID Path**: hero.default.primary.imagen_letras
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  imagen_superior: prismic.ImageField<never>;
-
-  /**
-   * Texto del Botón field in *Banner Principal → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Comenzar ahora
-   * - **API ID Path**: hero.default.primary.texto_boton
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  texto_boton: prismic.KeyTextField;
+  imagen_letras: prismic.ImageField<never>;
 }
 
 /**
@@ -762,6 +740,82 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *Post de LinkedIn → Default → Primary → Posts*
+ */
+export interface LinkedinPostSliceDefaultPrimaryPostsItem {
+  /**
+   * URL del post de LinkedIn field in *Post de LinkedIn → Default → Primary → Posts*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: https://www.linkedin.com/posts/...
+   * - **API ID Path**: linkedin_post.default.primary.posts[].url_post
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  url_post: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *Post de LinkedIn → Default → Primary*
+ */
+export interface LinkedinPostSliceDefaultPrimary {
+  /**
+   * Título de la sección field in *Post de LinkedIn → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Posts de LinkedIn
+   * - **API ID Path**: linkedin_post.default.primary.titulo_seccion
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  titulo_seccion: prismic.KeyTextField;
+
+  /**
+   * Posts field in *Post de LinkedIn → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: linkedin_post.default.primary.posts[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  posts: prismic.GroupField<Simplify<LinkedinPostSliceDefaultPrimaryPostsItem>>;
+}
+
+/**
+ * Default variation for Post de LinkedIn Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Lista de posts de LinkedIn por URL
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LinkedinPostSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LinkedinPostSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Post de LinkedIn*
+ */
+type LinkedinPostSliceVariation = LinkedinPostSliceDefault;
+
+/**
+ * Post de LinkedIn Shared Slice
+ *
+ * - **API ID**: `linkedin_post`
+ * - **Description**: Bloque para pegar enlaces de posts de LinkedIn y mostrarlos embebidos en la página
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LinkedinPostSlice = prismic.SharedSlice<
+  "linkedin_post",
+  LinkedinPostSliceVariation
+>;
 
 /**
  * Primary content in *Bloque Secundario → Default → Primary*
@@ -808,19 +862,47 @@ export interface ProductoDestacadoSliceDefaultPrimary {
   texto_boton: prismic.KeyTextField;
 
   /**
-   * Enlace del Botón field in *Bloque Secundario → Default → Primary*
+   * Sección del Botón field in *Bloque Secundario → Default → Primary*
    *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
+   * - **Field Type**: Select
+   * - **Placeholder**: Selecciona una sección
+   * - **Default Value**:
    * - **API ID Path**: producto_destacado.default.primary.enlace_boton
-   * - **Documentation**: https://prismic.io/docs/fields/link
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  enlace_boton: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
+  enlace_boton: prismic.SelectField<
+    | "#inicio"
+    | "#presencia-y-alcance"
+    | "#partners-titulo"
+    | "#contacto"
+    | "#video"
+  >;
+
+  /**
+   * Texto del Botón 2 field in *Bloque Secundario → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Presencia y alcance
+   * - **API ID Path**: producto_destacado.default.primary.texto_boton_2
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  texto_boton_2: prismic.KeyTextField;
+
+  /**
+   * Sección del Botón 2 field in *Bloque Secundario → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Selecciona una sección
+   * - **Default Value**:
+   * - **API ID Path**: producto_destacado.default.primary.enlace_boton_2
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  enlace_boton_2: prismic.SelectField<
+    | "#inicio"
+    | "#presencia-y-alcance"
+    | "#partners-titulo"
+    | "#contacto"
+    | "#video"
   >;
 
   /**
@@ -1220,10 +1302,10 @@ declare module "@prismicio/client" {
       ConfiguracionGlobalDocument,
       ConfiguracionGlobalDocumentData,
       ConfiguracionGlobalDocumentDataMenuItemsItem,
+      ConfiguracionGlobalDocumentDataFooterContactoItem,
       ConfiguracionGlobalDocumentDataRedesSocialesItem,
       LandingDocument,
       LandingDocumentData,
-      LandingDocumentDataFooterContactoItem,
       LandingDocumentDataSlicesSlice,
       TextoDocument,
       TextoDocumentData,
@@ -1246,6 +1328,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      LinkedinPostSlice,
+      LinkedinPostSliceDefaultPrimaryPostsItem,
+      LinkedinPostSliceDefaultPrimary,
+      LinkedinPostSliceVariation,
+      LinkedinPostSliceDefault,
       ProductoDestacadoSlice,
       ProductoDestacadoSliceDefaultPrimary,
       ProductoDestacadoSliceVariation,
