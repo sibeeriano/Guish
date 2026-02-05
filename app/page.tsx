@@ -17,8 +17,8 @@ export default async function Home() {
 
   // Si hay datos de Prismic, usar SliceZone para renderizar dinámicamente
   if (landingPage && landingPage.slices && landingPage.slices.length > 0) {
-    // Buscar el slice de configuración de fondo
-    const fondoSlice = landingPage.slices.find(
+    // Buscar el slice de configuración de fondo (puede no estar en la Slice Zone del tipo landing)
+    const fondoSlice = (landingPage.slices as Array<{ slice_type: string }>).find(
       (slice) => slice.slice_type === 'configuracion_fondo'
     ) as prismic.Content.ConfiguracionFondoSlice | undefined;
     
